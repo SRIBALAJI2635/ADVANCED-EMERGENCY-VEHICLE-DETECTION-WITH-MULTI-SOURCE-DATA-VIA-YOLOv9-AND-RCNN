@@ -1,0 +1,9 @@
+Flask
+Pillow
+torch
+opencv-python
+tensorflow
+ultralytics
+requests
+werkzeug
+numpy
