@@ -31,7 +31,7 @@ def predict_img():
 
             if file_extension in ['jpg', 'jpeg', 'png']:  # Added 'jpeg' and 'png' support
                 img = cv2.imread(filepath)
-                model = YOLO('yolov9c.pt')
+                model = YOLO('yoloooo.pt')
                 detections = model(img)  # Run detection
                 result_path = f"runs/detect/{f.filename}"
                 cv2.imwrite(result_path, detections[0].plot())  # Save the result image
@@ -49,7 +49,7 @@ def process_video(video_path):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     output_path = 'output.mp4'
     out = cv2.VideoWriter(output_path, fourcc, 30.0, (frame_width, frame_height))
-    model = YOLO('yolov9c.pt')
+    model = YOLO('yoloooo.pt')
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -93,7 +93,7 @@ def webcam_feed():
             if not success:
                 break
             img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            model = YOLO('yolov9c.pt')
+            model = YOLO('yoloooo.pt')
             results = model(img)  # Run detection
             res_plotted = results[0].plot()
             frame = cv2.cvtColor(res_plotted, cv2.COLOR_RGB2BGR)
@@ -127,7 +127,7 @@ def rtmp_feed():
             
             frame = np.frombuffer(raw_frame, np.uint8).reshape((480, 640, 3))  # Adjust for your video resolution
             img = Image.fromarray(frame)
-            model = YOLO('yolov9c.pt')
+            model = YOLO('yoloooo.pt')
             results = model(img)
             res_plotted = results[0].plot()
             img_BGR = cv2.cvtColor(res_plotted, cv2.COLOR_RGB2BGR)
